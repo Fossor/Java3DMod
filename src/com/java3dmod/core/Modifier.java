@@ -3,15 +3,15 @@ package com.java3dmod.core;
 import java.util.ArrayList;
 /** Modifier class is the base class for all modifier classes. */
 public class Modifier {
-	/** Mesh, the geometry of which changes the current modifier. @private */
+	/** Mesh, the geometry to modify. @private */
 	protected MeshProxy mod;
 
 	/** Creates a new instance of the class Modifier. */
 	public Modifier(){}
 	
 	/**
-	 * Defines the mesh, the geometry of which will change the current modifier.
-	 * @param	mod	 mesh, the geometry of which will change the current modifier.
+	 * Defines the mesh, the geometry of which will be modified.
+	 * @param	mod	 mesh, the geometry to modify.
 	 */
 	public void setModifiable(MeshProxy mod) { this.mod = mod; }
 	
