@@ -1,7 +1,7 @@
 package com.java3dmod.plugin.rajawali;
 
-//import com.javamod.core.MeshProxy;
-//import com.javamod.core.VertexProxy;
+//import com.java3dmod.core.MeshProxy;
+//import com.java3dmod.core.VertexProxy;
 import com.java3dmod.plugin.Library3d;
 
 public class LibraryRajawali extends Library3d {
@@ -16,9 +16,9 @@ public class LibraryRajawali extends Library3d {
 	public String getId() { return "Rajawali"; }
 	/** @inheritDoc */
 	@Override
-	public String getMeshClass() { return "com.javamod.plugin.rajawali.RajawaliMesh"; }
+	public String getMeshClass() { return "com.java3dmod.plugin.rajawali.RajawaliMesh"; }
 	/** @inheritDoc */
 	@Override
-	public String getVertexClass() { return "com.javamod.plugin.rajawali.RajawaliVertex"; }
+	public String getVertexClass() { return "com.java3dmod.plugin.rajawali.RajawaliVertex"; }
 	
 }
