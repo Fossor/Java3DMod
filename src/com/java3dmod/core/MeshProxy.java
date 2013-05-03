@@ -7,6 +7,11 @@ import com.java3dmod.util.ModConstant;
 
 import rajawali.math.Number3D;
 
+/**
+ * MeshProxy class is the base class for all classes, is a mesh of any individual 3D-engine. 
+ * Each 3D-engine, must be a subclass of this class with its implementation of some of the methods 
+ * specific for this 3D-engine.
+ */
 	public class MeshProxy implements IMeshInfo {
 		protected ArrayList<VertexProxy> vertices;
 		protected ArrayList<FaceProxy> faces;
@@ -31,14 +36,31 @@ import rajawali.math.Number3D;
 			faces = new ArrayList<FaceProxy>();
 		}
 		
+		/**
+		 * Sets the mesh, the geometry of which will changed by the modifiers.
+		 * @param	mesh	 mesh, the geometry of which will changed by the modifiers.
+		 */
 		public void setMesh(Object mesh) { }
 		
+		/**
+		 * Updates the position of the mesh.
+		 * @param	p new position of the mesh.
+		 */
 		public void updateMeshPosition(Number3D p) {}
 		
+		/**
+		 * Returns the list of vertices of the mesh.
+		 * @return	list of vertices of the mesh.
+		 */
 		public ArrayList<VertexProxy> getVertices() { return vertices; }
 		
+		/**
+		 * Returns the list of triangles of the mesh. 
+		 * @return	list of triangles of the mesh. 
+		 */
 		public ArrayList<FaceProxy> getFaces() { return faces; }
 		
+		/** Analyzes the geometry of the mesh, calculating the value of some class-modifiers necessary for the job. */
 		public void analyzeGeometry() {
 			int vc = getVertices().size();
 			int i;
@@ -67,7 +89,6 @@ import rajawali.math.Number3D;
 			_width = _maxX - _minX;
 			_height = _maxY - _minY;
 			_depth = _maxZ - _minZ;
-			
 			
 			float maxe = Math.max(_width, Math.max(_height, _depth));
 			float mine = Math.min(_width, Math.min(_height, _depth));
@@ -104,6 +125,7 @@ import rajawali.math.Number3D;
 			}
 		}
 		
+		/** Resets the current state of the geometry of the mesh to the original, which was before the use of modifiers. */
 		public void resetGeometry() {
 			int vc = getVertices().size();
 			for (int i = 0; i < vc; i++) {
@@ -112,6 +134,7 @@ import rajawali.math.Number3D;
 			}
 		}
 		
+		/** Indicates that the current state of the geometry of the mesh should now be considered as the original. */
 		public void collapseGeometry() {
 			int vc = getVertices().size();
 			for (int i = 0; i < vc; i++) {
@@ -128,6 +151,11 @@ import rajawali.math.Number3D;
 		/** @inheritDoc */
 		public float getMinZ() { return _minZ; }
 		
+		/**
+		 * Returns the minimum limit specified by the mesh axis.
+		 * @param	axis	the name of the coordinate axis. 
+		 * @return			the minimum limit of the mesh on the axis.
+		 */
 		public float getMin(int axis) {
 			switch(axis) {
 				case ModConstant.X: return _minX;
@@ -144,6 +172,11 @@ import rajawali.math.Number3D;
 		/** @inheritDoc */
 		public float getMaxZ() { return _maxZ; }
 		
+		/**
+		 * Returns the maximum limit specified by the mesh axis.
+		 * @param	axis	the name of the coordinate axis. 
+		 * @return			the maximum limit of the mesh on the axis.
+		 */
 		public float getMax(int axis) {
 			switch(axis) {
 				case ModConstant.X: return _maxX;
@@ -153,10 +186,17 @@ import rajawali.math.Number3D;
 			return -1;
 		}
 		
+		/** Coordinate axis along which the size of the mesh is maximal. */
 		public int getMaxAxis() { return _maxAxis; }
+		/** Coordinate axis along which the size of the mesh is average. */
 		public int getMidAxis() { return _midAxis; }
+		/** Coordinate axis along which the size of the mesh is minimal. */
 		public int getMinAxis() { return _minAxis; }
-		
+		/**
+		 * Returns the size of the mesh on the axis.
+		 * @param	axis	the name of the coordinate axis. 
+		 * @return			the mesh size on the axis.
+		 */
 		public float getSize(int axis) {
 			switch(axis) {
 				case ModConstant.X: return _width;
@@ -172,6 +212,6 @@ import rajawali.math.Number3D;
 		public float getHeight() { return _height; }
 		/** @inheritDoc */
 		public float getDepth() { return _depth; }
-		
+		/** Updates vertices of the mesh. */
 		public void updateVertices() {}
 	}

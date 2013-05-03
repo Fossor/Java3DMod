@@ -61,6 +61,8 @@ import android.graphics.Matrix;
 			_origin = this.mod.getMin(_max);
 			_diagAngle = (float) Math.atan(_width / _height);
 			_switchAxes = value;
+			
+			
 		}
 		
 		public void setForce(float f) { _force = f; }		
