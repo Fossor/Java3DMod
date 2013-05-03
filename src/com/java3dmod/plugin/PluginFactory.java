@@ -13,11 +13,6 @@ public class PluginFactory {
 		return null;
 	}
 	
-	/**
-	 * Возвращает �?кземпл�?р кла�?�?а меша дл�? указанного 3D-движка.
-	 * @param	lib3d	3D-движок.
-	 * @return			�?кземпл�?р кла�?�?а меша дл�? указанного 3D-движка.
-	 */
 	public static MeshProxy getMeshProxy(Library3d lib3d) {
 		Class<?> clazz = getMeshProxyClass(lib3d);
 		try {

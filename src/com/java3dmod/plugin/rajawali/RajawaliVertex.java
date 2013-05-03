@@ -6,7 +6,6 @@ public class RajawaliVertex extends VertexProxy {
 
 	private Vertex vx;
 
-/** Создает новый �?кземпл�?р кла�?�?а Away3dVertex. */
 public RajawaliVertex(){}
 
 /** @inheritDoc */
