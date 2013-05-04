@@ -2,6 +2,8 @@ package com.java3dmod.modifier;
 
 import java.util.ArrayList;
 
+import rajawali.Camera;
+
 import com.java3dmod.IModifier;
 import com.java3dmod.core.MeshProxy;
 import com.java3dmod.core.Modifier;
@@ -61,8 +63,22 @@ import android.graphics.Matrix;
 			_origin = this.mod.getMin(_max);
 			_diagAngle = (float) Math.atan(_width / _height);
 			_switchAxes = value;
+		}
+		
+		/**
+		 * Set axes manually. Use ModConstant.X=1,ModConstant.Y=2,ModConstant.Z=4
+		 * @param	primary primary bend axes.
+		 * @param	secondary secondary bend axes.
+		 */
+		public void setAxes(int primary,int secondary) {
 			
-			
+			_max = primary;//ModConstant.X;
+			_min = secondary;//ModConstant.Y;
+			_mid = 7-primary-secondary;//ModConstant.Z;
+			_width = this.mod.getSize(_max);	
+			_height = this.mod.getSize(_mid);
+			_origin = this.mod.getMin(_max);
+			_diagAngle = (float) Math.atan(_width / _height);
 		}
 		
 		public void setForce(float f) { _force = f; }		

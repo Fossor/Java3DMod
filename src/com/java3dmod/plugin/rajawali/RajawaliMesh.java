@@ -29,6 +29,7 @@ public class RajawaliMesh extends MeshProxy {
 		}else if(awm.getGeometry().getVertices().capacity() == 0){
 			throw new RuntimeException("No geometry found");
 		}
+		
 		int i;
 		FloatBuffer vs = awm.getGeometry().getVertices();
 		int vc = vs.capacity();
